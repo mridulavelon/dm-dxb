@@ -1,10 +1,11 @@
 import StickyHeader from "./components/sticky-header";
 import Dashboard from "./components/dashboard";
 import FooterPage from "./components/footer";
-// import PlanningDataRequest from "./components/planning-data-request";
-// import ApplyService from "./components/apply-service";
+import PlanningDataRequest from "./components/planning-data-request";
+import ApplyService from "./components/apply-service";
 import RequestDetailsWithSubmited from "./components/request-details-with-submited";
-// import RequestDetails from "./components/request-details";
+import RequestDetailsUnderReview from "./components/request-details-under-reviw";
+import RequestDetails from "./components/request-details";
 // import RequestDetailsUnderReview from "./components/request-details-under-reviw";
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
         <StickyHeader/>
         {/* Sticky header list */}
       </div>
-      <Dashboard/>
-      {/* <RequestDetails/> */}
+      {/* <Dashboard/> */}
+      <RequestDetails/>
       {/* <RequestDetailsUnderReview/> */}
       {/* <PlanningDataRequest/> */}
       {/* <ApplyService/> */}

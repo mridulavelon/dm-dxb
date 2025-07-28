@@ -16,7 +16,8 @@ export function MainNavigation({
   isSearchOpen,
 }: MainNavigationProps) {
   // Local satate
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
 
   return (
     <>
@@ -30,7 +31,10 @@ export function MainNavigation({
           <header className="flex items-center justify-between pt-2 pb-2 mt-2">
             {/* Left side: Logo and Navigation */}
             <div className="flex items-center gap-4">
-              <Menu className="w-5 h-5 cursor-pointer" />
+              <Menu
+                className="w-5 h-5 cursor-pointer"
+                onClick={() => setIsDesktopMenuOpen(true)}
+              />
               <nav className="flex gap-[30px] text-sm font-medium text-gray-700">
                 <a href="#" className="hover:text-[#6200ee]">
                   Home
@@ -100,7 +104,9 @@ export function MainNavigation({
                 <div className=""></div>
               ) : (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Popular Searches</h3>
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                    Popular Searches
+                  </h3>
                   <div className="space-y-2">
                     <button
                       onClick={() => setSearchQuery("Services")}
@@ -121,7 +127,10 @@ export function MainNavigation({
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white bg-opacity-50 z-50 lg:hidden" onClick={onMobileMenuClose} />
+        <div
+          className="fixed inset-0 bg-white bg-opacity-50 z-50 lg:hidden"
+          onClick={onMobileMenuClose}
+        />
       )}
 
       {/* Mobile Menu Sidebar */}
@@ -133,10 +142,17 @@ export function MainNavigation({
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-4 ">
-            <button onClick={onMobileMenuClose} className="p-2 hover:bg-gray-100 rounded-md">
+            <button
+              onClick={onMobileMenuClose}
+              className="p-2 hover:bg-gray-100 rounded-md"
+            >
               <X className="w-6 h-6 text-gray-700" />
             </button>
-            <img src="/images/dubai-logo.svg" alt="Dubai Municipality" className="h-8 w-auto" />
+            <img
+              src="/images/dubai-logo.svg"
+              alt="Dubai Municipality"
+              className="h-8 w-auto"
+            />
             <button className="p-2 hover:bg-gray-100 rounded-md">
               <Search className="w-6 h-6 text-gray-700" />
             </button>
@@ -145,7 +161,9 @@ export function MainNavigation({
           {/* Mobile Menu Content */}
           <div className="flex-1 overflow-y-auto">
             <div className="px-6 py-4">
-              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">MAIN MENU</h2>
+              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                MAIN MENU
+              </h2>
             </div>
 
             <nav className="px-6">
@@ -205,11 +223,64 @@ export function MainNavigation({
               </button>
             </div>
             <div className="flex items-center justify-center gap-4">
-              <img src="/images/company-logo.svg" alt="Government of Dubai" className="h-8 w-auto opacity-70" />
+              <img
+                src="/images/company-logo.svg"
+                alt="Government of Dubai"
+                className="h-8 w-auto opacity-70"
+              />
             </div>
           </div>
         </div>
       </div>
+      {/* Desktop Menu Sidebar */}
+    {/* Desktop Sidebar (Always rendered for animation) */}
+<div
+  className={`fixed top-0 left-0 h-full w-[350px] bg-white z-50 transform transition-transform duration-300 ease-in-out hidden lg:block ${
+    isDesktopMenuOpen ? "translate-x-0" : "-translate-x-full"
+  }`}
+>
+  <div className="flex flex-col h-full">
+    {/* Header */}
+    <div className="flex items-center justify-end p-3 pb-0 pt-0">
+      <button
+        onClick={() => setIsDesktopMenuOpen(false)}
+        className="p-2 hover:bg-gray-100 rounded-md"
+      >
+        <X className="w-6 h-6 text-gray-700" />
+      </button>
+    </div>
+
+    {/* Content */}
+    <div className="flex-1 overflow-y-auto">
+      <div className="px-6 py-0 pb-2">
+        <h2 className="text-base font-bold text-gray-700 uppercase tracking-wide">
+          MAIN MENU
+        </h2>
+      </div>
+
+      <nav className="px-6">
+        {[
+          "Home",
+          "Services",
+          "About Us",
+          "Easy Payment",
+          "Open Data",
+          "Contact Us",
+        ].map((label) => (
+          <a
+            key={label}
+            href="#"
+            className="flex items-center justify-between hover:text-[#6200EE] pb-3 pt-3 text-gray-700 border-b mx-[15px]"
+            style={{ borderColor: "#00000022" }}
+          >
+            <span className="font-medium">{label}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</div>
+
     </>
-  )
+  );
 }

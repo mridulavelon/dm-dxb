@@ -17,146 +17,150 @@ const RequestDetails = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 pb-8">
           Request Details
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:grid lg:grid-cols-4 lg:gap-6">
           {/* Left Column - Main Details */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="col-span-4 lg:col-span-3 pt-0">
             {/* Page Title */}
 
             {/* Request Information Card */}
-            <div className="bg-white rounded-lg">
-              <div className="p-6 pb-4 ">
+            <div className="bg-white rounded-lg mb-7">
+              <div className="p-5 pb-12 ">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <h2 className="text-lg font-semibold text-gray-900">
+                  <h2 className="text-2xl font-bold text-gray-700 pb-3">
                     Planned Unit Development Request
                   </h2>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 w-fit">
+                  <span className="inline-flex items-center px-3 py-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800 w-fit">
                     Pending Review
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">
-                  Ref: UPS-20240712006
+                <p className="text-base font-semibold text-gray-600 mt-2">
+                  Ref. UPS-202407120004
                 </p>
               </div>
               <div className="p-5 space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-                  <div className="w-fit">
-                    <p className="text-gray-600 mb-1">Category</p>
-                    <p className="font-medium text-gray-900">
+                <div className="grid grid-cols-4 sm:grid-cols-3 gap-5 mb-8 pb-5">
+                  {/* Category - spans 2 columns */}
+                  <div className=" col-span-3 sm:col-span-1">
+                    <p className="text-gray-600 mb-2">Category</p>
+                    <p className="font-medium text-sm text-gray-900">
                       Hospitality, Food Operations and Safety
                     </p>
                   </div>
-                  <div>
-                    <p className="text-gray-600 mb-1">Last updated</p>
-                    <p className="font-medium text-gray-900">
-                      26 Oct 2024, 4:35pm
+
+                  {/* Last updated - spans 1 column */}
+                  <div className="col-span-2 sm:col-span-1">
+                    <p className="text-gray-600 mb-2">Last updated</p>
+                    <p className="font-medium text-sm text-gray-900">
+                      26 Oct 2024 <span className="pl-2">4:35pm</span>
                     </p>
                   </div>
-                  <div>
-                    <p className="text-gray-600 mb-1">Submission Date</p>
-                    <p className="font-medium text-gray-900">26 Nov 2024</p>
+
+                  {/* Submission Date - spans 1 column */}
+                  <div className="col-span-2 sm:col-span-1">
+                    <p className="text-gray-600 mb-2">Submission Date</p>
+                    <p className="font-medium text-sm  text-gray-900">26 Nov 2024</p>
                   </div>
                 </div>
+
                 {/* <hr className="border-gray-200" /> */}
                 <div className="bg-white rounded-lg ">
-                  <p className="text-sm text-black-800">
-                    <span className="font-medium">Reject reason:</span>
-                    <br />
+                    <p className="font-medium text-sm text-gray-600 mb-2">Reject reason</p>
+                    <p className="font-medium text-sm  text-gray-900">
                     This request has been rejected. To proceed, please submit a
                     new application.
-                  </p>
+                    </p>
                 </div>
               </div>
             </div>
 
             {/* Applicant Details Card */}
             <div className="bg-white rounded-lg">
-              <div className="p-6 pb-4">
-                <h2 className="text-lg font-semibold text-gray-900">
+              <div className="p-5 pb-5">
+                <h2 className="text-2xl font-bold text-gray-700 pb-3">
                   Applicant Details
                 </h2>
               </div>
-              <div className="p-6 pb-0">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm pb-8">
+              <div className="p-5 pb-0">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm pb-11">
                   <div>
-                    <p className="text-gray-600 mb-1">Customer Type</p>
-                    <p className="font-medium text-gray-900">Company</p>
+                    <p className="text-gray-600 mb-2">Customer Type</p>
+                    <p className="font-medium text-sm text-gray-900">Company</p>
                   </div>
                   <div>
-                    <p className="text-gray-600 mb-1">Name</p>
-                    <p className="font-medium text-gray-900">
+                    <p className="text-gray-600 mb-2">Name</p>
+                    <p className="font-medium text-sm text-gray-900">
                       Abdullah Mohamed Ahmed
                     </p>
                   </div>
                   <div>
-                    <p className="text-gray-600 mb-1">Mobile Number</p>
-                    <p className="font-medium text-gray-900">+971543395506</p>
+                    <p className="text-gray-600 mb-2">Mobile Number</p>
+                    <p className="font-medium text-sm text-gray-900">+971543395506</p>
                   </div>
                 </div>
-              <hr className="border-gray-200" /> 
+                <hr className="border-gray-200" />
               </div>
             </div>
-            
 
             {/* Trade License Details Card */}
-            <div className="bg-white rounded-lg pb-0 ">
-              <div className="p-6 pb-4">
-                <h2 className="text-lg font-semibold text-gray-900">
+            <div className="bg-white rounded-lg pb-0 pt-5">
+              <div className="p-5 pb-5">
+                <h2 className="text-2xl font-bold text-gray-700 pb-3">
                   Trade License Details
                 </h2>
               </div>
-              <div className="p-6 pb-0  space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm ">
+              <div className="p-5 pb-0  space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm pb-6 ">
                   <div>
-                    <p className="text-gray-600 mb-1">Licensing Authority</p>
-                    <p className="font-medium text-gray-900">
+                    <p className="text-gray-600 mb-2">Licensing Authority</p>
+                    <p className="font-medium text-sm text-gray-900">
                       Dubai Economy & Tourism
                     </p>
                   </div>
                   <div>
-                    <p className="text-gray-600 mb-1">Trade Name</p>
-                    <p className="font-medium text-gray-900">
+                    <p className="text-gray-600 mb-2">Trade Name</p>
+                    <p className="font-medium text-sm text-gray-900">
                       ABC Vending Machine
                     </p>
                   </div>
                   <div>
-                    <p className="text-gray-600 mb-1">Trade License Number</p>
-                    <p className="font-medium text-gray-900">65421992642</p>
+                    <p className="text-gray-600 mb-2">Trade License Number</p>
+                    <p className="font-medium text-sm text-gray-900">65421992642</p>
                   </div>
                 </div>
-                <div className="pb-6">
-                  <p className="text-gray-600 mb-1 text-sm">Activity Type</p>
+                <div className="pb-7">
+                  <p className="text-gray-600 mb-2 text-sm">Activity Type</p>
                   <p className="font-medium text-sm text-gray-900">
                     4799002 Selling Products & Services by Automatic Vending
                     Machines
                   </p>
                 </div>
-                <hr className="border-gray-200" /> 
+                <hr className="border-gray-200" />
               </div>
             </div>
 
             {/* Additional Details Card */}
-            <div className="bg-white rounded-lg">
-              <div className="p-6 pb-4 ">
-                <h2 className="text-lg font-semibold text-gray-900">
+            <div className="bg-white rounded-lg pt-5">
+              <div className="p-5 pb-4 ">
+                <h2 className="text-2xl font-bold text-gray-700 pb-3">
                   Additional Details
                 </h2>
               </div>
-              <div className="p-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div className="p-5">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
                   <div>
                     <p className="text-gray-600 mb-2">Activities</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-200">
                         Tea
                       </span>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-200">
                         Coffee
                       </span>
                     </div>
                   </div>
-                  <div>
-                    <p className="text-gray-600 mb-1">Location</p>
-                    <p className="font-medium text-gray-900">
+                  <div className="w-fit ">
+                    <p className="text-gray-600 mb-2">Location</p>
+                    <p className="font-medium text-sm text-gray-900">
                       Sheikh Mohamed Bin Rashid Boulevard, Downtown, Dubai
                     </p>
                   </div>

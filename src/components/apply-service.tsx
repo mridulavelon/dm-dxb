@@ -7,7 +7,7 @@ export default function ApplyService() {
   const [acknowledged, setAcknowledged] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-4">
+    <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb Navigation */}
       <div className="lg:pt-32 pt-10">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
@@ -22,11 +22,11 @@ export default function ApplyService() {
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 ">
-        <h1 className="text-2xl font-bold text-gray-900 mb-8">Apply service</h1>
+        <h1 className="text-2xl  text-gray-600 mb-8">Apply service</h1>
         <form className="space-y-8">
           {/* Basic Information */}
           <div className="bg-white rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
+            <h2 className="text-xl font-bold text-gray-700 pb-9">
               Basic Information
             </h2>
 
@@ -55,8 +55,8 @@ export default function ApplyService() {
             <hr className="border-gray-200" />
 
             {/* Attachments */}
-            <div className="bg-white py-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">
+            <div className="bg-white pt-8">
+              <h2 className="text-xl font-bold text-gray-700 pb-8">
                 Attachments
               </h2>
 

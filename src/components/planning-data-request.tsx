@@ -17,7 +17,7 @@ const PlanningDataRequest = () => {
   const [acknowledged, setAcknowledged] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-2">
+    <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb Navigation */}
       <div className="lg:pt-32 pt-10">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
@@ -34,14 +34,14 @@ const PlanningDataRequest = () => {
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <h1 className="text-2xl font-medium text-gray-900 mb-8">
+        <h1 className="text-2xl  text-gray-600 mb-8">
           Request for planning data
         </h1>
 
-        <form className="space-y-8">
+        <form className="space-y-5 pt-5">
           {/* Assign to Consultant Toggle */}
           <div className="bg-white rounded-lg p-6">
-            <div className="flex items-center justify-start gap-4">
+            <div className="flex items-center justify-start gap-4 ">
               <button
                 type="button"
                 onClick={() => setAssignToConsultant(!assignToConsultant)}
@@ -62,8 +62,8 @@ const PlanningDataRequest = () => {
           </div>
 
           {/* Basic Information */}
-          <div className="bg-white rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg p-6 mb-5">
+            <h2 className="text-xl font-bold text-gray-700 pb-4">
               Basic Information
             </h2>
 
@@ -76,7 +76,7 @@ const PlanningDataRequest = () => {
               </div>
 
               {/* Community Service Toggle */}
-              <div className="flex items-center justify-start gap-4">
+              <div className="flex items-center justify-start gap-4 lg:pt-5">
                 <button
                   type="button"
                   onClick={() => setCommunityService(!communityService)}
@@ -96,7 +96,7 @@ const PlanningDataRequest = () => {
               </div>
 
               {/* Community Name Input */}
-              <div>
+              <div className="pt-5">
                 <label
                   htmlFor="community-name"
                   className="block text-sm font-medium text-gray-700 mb-2"
@@ -112,7 +112,7 @@ const PlanningDataRequest = () => {
               </div>
 
               {/* Project Description */}
-              <div>
+              <div className="pt-5">
                 <label
                   htmlFor="description"
                   className="block text-sm font-medium text-gray-700 mb-2"
@@ -138,8 +138,8 @@ const PlanningDataRequest = () => {
             </div>
 
             {/* Outcome Type */}
-            <div className="bg-white py-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-7   ">
+            <div className="bg-white py-7">
+              <h2 className="text-xl font-bold text-gray-700 pb-8   ">
                 Outcome type
               </h2>
 
@@ -176,8 +176,8 @@ const PlanningDataRequest = () => {
               </div>
 
               {/* Dropdowns */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:pt-3">
+                <div className="">
                   <label
                     htmlFor="project-select"
                     className="block text-sm font-medium text-gray-700 mb-2"
@@ -221,8 +221,8 @@ const PlanningDataRequest = () => {
             <hr className="border-gray-200" />
 
             {/* Attachments */}
-            <div className="bg-white py-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">
+            <div className="bg-white pt-8">
+              <h2 className="text-xl font-bold text-gray-700 pb-10">
                 Attachments <span className="text-red-500">*</span>
               </h2>
               <p className="text-sm text-gray-600 mb-4">
@@ -250,8 +250,8 @@ const PlanningDataRequest = () => {
 
       {/* Terms and Submit */}
       <div className="my-6 bg-white rounded-lg p-6 ">
-        <div className="max-w-[1280px] mx-auto flex items-start justify-between px-5">
-          <div className="max-w-4xl flex items-start space-x-3 mb-6">
+        <div className="max-w-[1280px] mx-auto flex items-start justify-between lg:flex-nowrap flex-wrap px-5">
+          <div className="w-full lg:max-w-4xl flex items-start space-x-3 mb-6">
             <input
               type="checkbox"
               id="acknowledge"
@@ -266,7 +266,7 @@ const PlanningDataRequest = () => {
             </label>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+          <div className="flex flex-row gap-3 ">
             <button
               type="button"
               className="px-6 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#6200ee] focus:ring-offset-2"

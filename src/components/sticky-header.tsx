@@ -11,7 +11,8 @@ const StickyHeader = () => {
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isAtBottom, setIsAtBottom] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  console.log(isAtBottom);
 
   // Custom hook
   useEffect(() => {
