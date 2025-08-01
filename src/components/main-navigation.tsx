@@ -233,54 +233,52 @@ export function MainNavigation({
         </div>
       </div>
       {/* Desktop Menu Sidebar */}
-    {/* Desktop Sidebar (Always rendered for animation) */}
-<div
-  className={`fixed top-0 left-0 h-full w-[350px] bg-white z-50 transform transition-transform duration-300 ease-in-out hidden lg:block ${
-    isDesktopMenuOpen ? "translate-x-0" : "-translate-x-full"
-  }`}
->
-  <div className="flex flex-col h-full">
-    {/* Header */}
-    <div className="flex items-center justify-end p-3 pb-0 pt-0">
-      <button
-        onClick={() => setIsDesktopMenuOpen(false)}
-        className="p-2 hover:bg-gray-100 rounded-md"
+      <div
+        className={`fixed top-0 left-0 h-full w-[350px] bg-white z-50 transform transition-transform duration-300 ease-in-out hidden lg:block ${
+          isDesktopMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
-        <X className="w-6 h-6 text-gray-700" />
-      </button>
-    </div>
+        <div className="flex flex-col h-full">
+          {/* Header */}
+          <div className="flex items-center justify-end p-3 pb-0 pt-0">
+            <button
+              onClick={() => setIsDesktopMenuOpen(false)}
+              className="p-2 hover:bg-gray-100 rounded-md"
+            >
+              <X className="w-6 h-6 text-gray-700" />
+            </button>
+          </div>
 
-    {/* Content */}
-    <div className="flex-1 overflow-y-auto">
-      <div className="px-6 py-0 pb-2">
-        <h2 className="text-base font-bold text-gray-700 uppercase tracking-wide">
-          MAIN MENU
-        </h2>
+          {/* Content */}
+          <div className="flex-1 overflow-y-auto">
+            <div className="px-6 py-0 pb-2">
+              <h2 className="text-base font-bold text-gray-700 uppercase tracking-wide">
+                MAIN MENU
+              </h2>
+            </div>
+
+            <nav className="px-6">
+              {[
+                "Home",
+                "Services",
+                "About Us",
+                "Easy Payment",
+                "Open Data",
+                "Contact Us",
+              ].map((label) => (
+                <a
+                  key={label}
+                  href="#"
+                  className="flex items-center justify-between hover:text-[#6200EE] pb-3 pt-3 text-gray-700 border-b mx-[15px]"
+                  style={{ borderColor: "#00000022" }}
+                >
+                  <span className="font-medium">{label}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
       </div>
-
-      <nav className="px-6">
-        {[
-          "Home",
-          "Services",
-          "About Us",
-          "Easy Payment",
-          "Open Data",
-          "Contact Us",
-        ].map((label) => (
-          <a
-            key={label}
-            href="#"
-            className="flex items-center justify-between hover:text-[#6200EE] pb-3 pt-3 text-gray-700 border-b mx-[15px]"
-            style={{ borderColor: "#00000022" }}
-          >
-            <span className="font-medium">{label}</span>
-          </a>
-        ))}
-      </nav>
-    </div>
-  </div>
-</div>
-
     </>
   );
 }

@@ -1,16 +1,18 @@
 import {
+  AlertTriangle,
   ArrowRight,
-  Calendar1,
+  CreditCard,
   EqualApproximately,
   ExternalLink,
   FileMinus,
+  Link,
+  ListFilter,
   MapPin,
   RectangleEllipsis,
   Search,
 } from "lucide-react";
 import { useState } from "react";
 import { FaCalendarAlt, FaCreditCard, FaPlus } from "react-icons/fa";
-import { FaApple } from "react-icons/fa6";
 
 const statusOptions = [
   { value: "active", label: "Active" },
@@ -26,11 +28,89 @@ const companyOptions = [
   { value: "completed", label: "Completed" },
 ];
 
+// request data json
+const requestList = [
+  {
+    plot: "89872",
+    title: "Request For Planning Data",
+    reference: "UPS-202407120004",
+    date: "23 Nov 2024",
+    status: "Reject",
+    statusColor: "red",
+    hasPayNow: false,
+  },
+  {
+    plot: "89872",
+    title: "Certificate of Verification for Ground Levels",
+    reference: "UPS-202407120006",
+    date: "23 Nov 2024",
+    status: "Completed",
+    statusColor: "green",
+    hasPayNow: false,
+  },
+  {
+    plot: "89872",
+    title: "Certificate of Verification for Ground Levels",
+    reference: "UPS-202407120006",
+    date: "23 Nov 2024",
+    status: "Pending payment",
+    statusColor: "yellow",
+    hasPayNow: true,
+  },
+  {
+    plot: "89872",
+    title: "Certificate of Verification for Ground Levels",
+    reference: "UPS-202407120006",
+    date: "23 Nov 2024",
+    status: "Required Modification",
+    statusColor: "orange",
+    hasPayNow: false,
+  },
+  {
+    plot: "89872",
+    title: "Certificate of Verification for Ground Levels",
+    reference: "UPS-202407120006",
+    date: "23 Nov 2024",
+    status: "Required Modification",
+    statusColor: "orange",
+    hasPayNow: false,
+  },
+  {
+    plot: "89872",
+    title: "Certificate of Verification for Ground Levels",
+    reference: "UPS-202407120006",
+    date: "23 Nov 2024",
+    status: "In-progress",
+    statusColor: "blue",
+    hasPayNow: false,
+  },
+  {
+    plot: "89872",
+    title: "Certificate of Verification for Ground Levels",
+    reference: "UPS-202407120006",
+    date: "23 Nov 2024",
+    status: "Request Auto Closed",
+    statusColor: "BurntOrange",
+    hasPayNow: false,
+  },
+];
+
+const statusColors: Record<string, string> = {
+  red: "bg-red-100 text-red-700",
+  green: "bg-green-100 text-green-700",
+  yellow: "bg-yellow-100 text-yellow-700",
+  orange: "bg-orange-100 text-orange-700",
+  blue: "bg-[#E4F0FB] text-[#1B75D0]",
+  BurntOrange: "bg-[#FEE9E4] text-[#E25832]",
+};
+
 const Dashboard = () => {
   // Local state
   const [activeTab, setActiveTab] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState<string>("Status");
-  const [selectedCompany, setSelectedCompany] = useState<string>("ABC General transding");
+  const [selectedCompany, setSelectedCompany] = useState<string>(
+    "ABC General transding"
+  );
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState<boolean>(false);
 
@@ -53,63 +133,66 @@ const Dashboard = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen text-sm text-gray-800 ">
-      <div className="max-w-[1280px] px-4 mx-auto lg:pt-36 pt-10">
+      <div className="max-w-[1280px] px-4 mx-auto lg:pt-20 pt-10">
         <p className="text-base pb-2">Home</p>
-        <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
+        <h1 className="text-2xl font-semibold mb-4 ">Dashboard</h1>
         <div className="grid grid-cols-4 gap-6">
           {/* Recent Updates Section */}
           <div className="col-span-4 lg:col-span-3 pt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5 pb-5 border-b border-gray-200">
-              <div className="bg-white px-4 py-3 rounded-md shadow flex flex-col">
-                <div className="flex items-center justify-between py-2">
-                  <p className="text-sm text-black font-medium">
-                    Services Requests
+            <div className="lg:col-span-3">
+              {/* Stats Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 pb-5 border-b border-gray-200">
+                <div className="bg-white px-4 py-4 rounded-lg ">
+                  <div className="flex items-center justify-between mb-3 py-2">
+                    <p className="text-sm text-gray-700 font-medium">
+                      Services Requests
+                    </p>
+                    <FileMinus className="w-5 h-5 text-[#6200ee]" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900 pb-4 pt-2">
+                    9
                   </p>
-                  <FileMinus className="text-gray-400 text-2xl stroke-[#6200ee]" />
                 </div>
-                <p className="text-2xl font-bold pb-4 pt-2">9</p>
-              </div>
-              <div className="bg-white px-4 py-3 rounded-md shadow flex flex-col">
-                <div className="flex items-center justify-between py-2">
-                  <p className="text-sm text-black font-medium">
-                    Total Appointments
+
+                <div className="bg-white px-4 py-4 rounded-lg ">
+                  <div className="flex items-center justify-between mb-3 py-2">
+                    <p className="text-sm text-gray-700 font-medium">
+                      Rejected
+                    </p>
+                    <AlertTriangle className="w-5 h-5 text-[#6200ee]" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900 pb-4 pt-2 ">
+                    3
                   </p>
-                  <Calendar1 className="text-gray-400 text-2xl stroke-[#6200ee]" />
                 </div>
-                <p className="text-2xl font-bold pb-4 pt-2">3</p>
-              </div>
-              <div className="bg-white px-4 py-3 rounded-md shadow flex flex-col">
-                <div className="flex items-center justify-between py-2">
-                  <p className="text-sm text-black font-medium">
-                    Pending Payments
+
+                <div className="bg-white px-4 py-4 rounded-lg">
+                  <div className="flex items-center justify-between mb-3 py-2">
+                    <p className="text-sm text-gray-700 font-medium">
+                      Pending Payments
+                    </p>
+                    <CreditCard className="w-5 h-5 text-[#6200ee]" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900 pb-4 pt-2">
+                    600
+                    <span className="text-sm font-normal ml-1">AED</span>
                   </p>
-                  <RectangleEllipsis className="text-gray-400 text-2xl stroke-[#6200ee]" />
                 </div>
-                <p className="text-2xl font-bold relative pb-4 pt-2">
-                  600
-                  <span className="text-xs font-normal absolute top-2 ml-1">
-                    AED
-                  </span>
-                </p>
               </div>
             </div>
             <h2 className="text-lg font-semibold mb-4">Recent Updates</h2>
 
             {/* Filters */}
-            <div className="flex flex-wrap gap-4 mb-15">
+            <div className="flex flex-wrap gap-[19px] mb-15">
               <div className="relative w-full lg:w-fit ">
                 <Search className="absolute left-2 top-[49%] -translate-y-1/2 w-4 h-4 text-gray-500" />
                 <input
                   type="text"
                   placeholder="Request ID/ Transaction status"
-                  className="w-full lg:sm:w-[470px] pl-8 pr-3 py-2 border border-[#e4e4e4] rounded-md text-sm bg-white focus:outline-none focus:ring"
+                  className="w-full lg:sm:w-[578px] pl-8 pr-3 py-2 border border-[#e4e4e4] rounded-md text-sm bg-white focus:outline-none focus:ring"
                 />
               </div>
-              <input
-                type="date"
-                className="border border-[#e4e4e4] bg-white px-3 py-2 rounded-md w-full lg:sm:w-40"
-                defaultValue="2025-06-27"
-              />
+
               <div className="relative lg:w-fit w-full ">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -155,6 +238,11 @@ const Dashboard = () => {
                   />
                 )}
               </div>
+
+              <div className="py-2 px-3 flex items-center justify-center border border-gray-300 rounded-md bg-white">
+                <ListFilter className="w-4 h-4" />
+              </div>
+
               <button className="bg-[#6200EE] text-white px-4 py-2 rounded-lg w-full sm:w-20">
                 Search
               </button>
@@ -174,7 +262,13 @@ const Dashboard = () => {
                     }`}
                   >
                     {tab.label}
-                    <span className="ml-1 text-xs">{tab.count}</span>
+                    <span
+                      className={`inline-flex items-center justify-center w-6 h-6 ms-2 py-2 text-xs font-semibold text-primary ${
+                        activeTab === tab.label ? "bg-white" : "bg-[#F4F3FF]"
+                      } rounded-full`}
+                    >
+                      {tab.count}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -184,39 +278,60 @@ const Dashboard = () => {
             </div>
 
             {/* Card */}
-            <div className="bg-white p-4 rounded shadow mb-4 border border-gray-100">
-              <div className="flex lg:items-center items-start justify-between gap-4 flex-wrap md:flex-nowrap">
-                {/* Left side */}
-                <div className="flex items-start gap-4">
-                  <EqualApproximately className="text-[#6200EE] text-2xl" />
-                  <div>
-                    <p className="font-medium">
-                      Master Plan of Construction Projects
-                    </p>
-                    <div className="flex items-center gap-4 text-xs text-gray-500 mt-1">
-                      <span>Ref. UPS-202407120004</span>
-                      <span className="flex items-center gap-1">
-                        <FaCalendarAlt className="text-gray-400" /> 23 Nov 2024
+            {requestList.map((data) => (
+              <div className="bg-white p-4 rounded-md mb-4 border border-gray-100">
+                <div className="flex lg:items-center items-start gap-4 flex-wrap md:flex-nowrap">
+                  {/* Left side */}
+                  <div className="flex items-start gap-4 w-3/5">
+                    <EqualApproximately className="text-[#6200EE] text-2xl" />
+                    <div>
+                      <p className="text-sm text-gray-600 font-semibold pb-2">
+                        Plot: {data.plot}
+                      </p>
+                      <p className="font-medium">{data.title}</p>
+                      <div className="flex items-center gap-4 text-xs text-gray-500 mt-1">
+                        <span>{data.reference}</span>
+                        <span className="flex items-center gap-1">
+                          <FaCalendarAlt className="text-gray-400" />
+                          {data.date}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between flex-1">
+                    <div className="w-fit">
+                      <span
+                        className={`${
+                          statusColors[data.statusColor]
+                        } text-xs px-3 py-1 rounded-full whitespace-nowrap font-semibold`}
+                      >
+                        {data.status}
                       </span>
+                    </div>
+                    {/* Right side: status + details */}
+                    <div className="flex items-center gap-4 w-full lg:w-fit">
+                      <div className="flex flex-1 items-center gap-3">
+                        {data.hasPayNow ? (
+                          <button className=" text-[#6200ee] text-sm font-medium hover:underline flex items-center gap-2">
+                            Details <span className="px-2">|</span>Pay Now{" "}
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                        ) : (
+                          <button className="text-[#6200ee] text-sm font-medium hover:underline">
+                            Details
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Right side: status + details */}
-                <div className="flex items-center gap-4 w-full lg:w-fit">
-                  <div className="w-[200px]">
-                    <span className="bg-green-100 text-green-800 text-xs px-3 py-[2px] rounded-full whitespace-nowrap font-semibold">
-                      Completed
-                    </span>
-                  </div>
-                  <a
-                    href="#"
-                    className="text-[#6200EE] font-semibold text-sm flex items-center gap-1 whitespace-nowrap"
-                  >
-                    Details <ArrowRight />
-                  </a>
-                </div>
               </div>
+            ))}
+            {/* View All */}
+            <div className="text-center pt-2 mb-6">
+              <button className="text-[#6200ee] font-medium text-sm flex items-center gap-1 mx-auto">
+                View All <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
@@ -224,7 +339,9 @@ const Dashboard = () => {
           <div className="col-span-4 lg:col-span-1 flex flex-col gap-7">
             {/* ABC Company Block */}
             <div className="bg-white p-4 py-6 rounded-md shadow">
-              <h3 className="font-bold text-lg mb-2 pb-2">ABC General Trading</h3>
+              <h3 className="font-bold text-lg mb-2 pb-2">
+                ABC General Trading
+              </h3>
               <p className="text-xs text-gray-500 mb-2">
                 Select user name / Company
               </p>
@@ -290,7 +407,8 @@ const Dashboard = () => {
               <h4 className="font-bold mb-2 pb-4 text-lg">Quick Links</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm pb-5">
-                  <MapPin className="text-primary w-4 h-4" /> Urban planning services
+                  <MapPin className="text-primary w-4 h-4" /> Urban planning
+                  services
                 </div>
                 <div className="flex items-center gap-2 text-sm pb-3">
                   <FaCreditCard className="text-primary w-4 h-4" /> My Payment
